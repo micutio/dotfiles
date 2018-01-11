@@ -30,12 +30,9 @@ Plug 'dylanaraps/wal'
 " Nerd tree directory view (loads on demand)
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 
-" Add proper handling of rust files
-Plug 'rust-lang/rust.vim'
-
 " Powerline or airline
 if !has("nvim")
-    set rtp+=/home/michael/.local/lib/python3.5/site-packages/powerline/bindings/vim/
+    set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
 else
 " Airline advanced information bar
     Plug 'vim-airline/vim-airline'
@@ -67,6 +64,11 @@ filetype plugin indent on
 
 " set wrap lines
 set wrap
+
+" prevent background issues when running in tmux
+if &term =~ '256color'
+    set t_ut=
+endif
 
 
 """"""""""""""""""
@@ -167,7 +169,6 @@ set wildmenu
 
 " Set true color
 set t_Co=256
-"set termguicolors
 
 " Some special treatment for neovim
 if has("vim")
@@ -189,4 +190,4 @@ set background=light
 syntax enable
 
 " Set color scheme
-colorscheme solarized 
+colorscheme solarized
