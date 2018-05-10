@@ -184,10 +184,10 @@ endif
 
 "
 " This has to come first
-set background=light
+set background=dark
 
 " Enable syntax highlighting
 syntax enable
 
 " Set color scheme
-colorscheme solarized
+colorscheme nova
