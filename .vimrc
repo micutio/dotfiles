@@ -170,17 +170,14 @@ set wildmenu
 " Set true color
 set t_Co=256
 
-" Some special treatment for neovim
-if has("vim")
-    " Enable True Color Support, if available
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
+" Enable True Color Support, if available
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 
-    " Let the background be normal terminal style to keep consistency
-    au ColorScheme * highlight Normal ctermbg=none guibg=none
-    au ColorScheme * highlight NonText ctermbg=none guibg=none
-endif
+" Let the background be normal terminal style to keep consistency
+au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
 
 "
 " This has to come first
