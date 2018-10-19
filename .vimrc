@@ -23,6 +23,10 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'zanglg/nova.vim'
 Plug 'marcopaganini/termschool-vim-theme'
 Plug 'joshglendenning/vim-darcula-colors'
+Plug 'daddye/soda.vim'
+Plug 'noahfrederick/vim-hemisu'
+Plug 'nightsense/seagrey'
+Plug 'nightsense/snow'
 
 " Adaptive colorscheme
 Plug 'dylanaraps/wal'
@@ -173,18 +177,27 @@ set t_Co=256
 " Enable True Color Support, if available
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+"set termguicolors
 
-" Let the background be normal terminal style to keep consistency
-au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+" support highlighting when searching
+set hlsearch
 
-"
 " This has to come first
-set background=dark
+"set background=dark
 
 " Enable syntax highlighting
 syntax enable
 
+" Let the background be normal terminal style to keep consistency
+"hi Normal guibg=NONE ctermbg=NONE
+"hi NonText guibg=NONE ctermbg=NONE
+
 " Set color scheme
-colorscheme nova
+colorscheme soda
+
+
+au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+
+set termguicolors
+
