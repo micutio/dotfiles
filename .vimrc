@@ -18,30 +18,15 @@ call plug#begin()
 
 " Custom Colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'nightsense/seabird'
-Plug 'altercation/vim-colors-solarized'
 Plug 'zanglg/nova.vim'
-Plug 'marcopaganini/termschool-vim-theme'
-Plug 'joshglendenning/vim-darcula-colors'
-Plug 'daddye/soda.vim'
-Plug 'noahfrederick/vim-hemisu'
 Plug 'nightsense/seagrey'
 Plug 'nightsense/snow'
-
-" Adaptive colorscheme
-Plug 'dylanaraps/wal'
 
 " Nerd tree directory view (loads on demand)
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 
-" Powerline or airline
-if !has("nvim")
-    set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
-else
 " Airline advanced information bar
-    Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-endif
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -51,6 +36,9 @@ call plug#end()
 """""""""""""""""""
 
 set nocompatible
+
+" Hide default statusbar
+set noshowmode
 
 " Set line numbers
 set number
@@ -91,35 +79,17 @@ set laststatus=2
 " remove accidental lag
 set ttimeoutlen=5
 
-" Powerline config
-let g:Powerline_symbols = 'fancy'
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-
-
 """"""""""""""""""""""""""""""""""""""""""""""
 " Key Mappings for easier delimiter handling "
 """"""""""""""""""""""""""""""""""""""""""""""
 
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
-inoremap { {<CR>}<Esc>O
+inoremap { {}<Esc>i
 autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap } <c-r>=CloseBracket()<CR>
+inoremap } <c-r>=ClosePair('}')<CR>
 inoremap " <c-r>=QuoteDelim('"')<CR>
 inoremap ' <c-r>=QuoteDelim("'")<CR>
 
@@ -189,12 +159,11 @@ set hlsearch
 syntax enable
 
 " Let the background be normal terminal style to keep consistency
-"hi Normal guibg=NONE ctermbg=NONE
-"hi NonText guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
 
 " Set color scheme
-colorscheme soda
-
+colorscheme nova
 
 au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
