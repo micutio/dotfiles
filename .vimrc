@@ -19,6 +19,8 @@ call plug#begin()
 " Custom Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'zanglg/nova.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'trevordmiller/nova-vim'
 Plug 'nightsense/seagrey'
 Plug 'nightsense/snow'
 
@@ -158,15 +160,16 @@ set hlsearch
 " Enable syntax highlighting
 syntax enable
 
-" Let the background be normal terminal style to keep consistency
-hi Normal guibg=NONE ctermbg=NONE
-hi NonText guibg=NONE ctermbg=NONE
+set termguicolors
 
 " Set color scheme
 colorscheme nova
 
+" Let the background be normal terminal style to keep consistency
+hi Normal guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
+
 au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
 
-set termguicolors
 

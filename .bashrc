@@ -143,7 +143,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PATH="$PATH:$HOME/.cargo/bin" # add cargo to PATH for all things rust
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/apps/omnetpp-5.0/bin:$HOME/apps/sumo-0.26.0/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)
 
 alias config='/usr/bin/git --git-dir=/home/michael/.cfg/ --work-tree=/home/michael'
+if [ $TILIX_ID ] || [ $VTE_VERSION ] ; then source /etc/profile.d/vte.sh; fi # Ubuntu Budgie END
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/michael/.sdkman"
+[[ -s "/home/michael/.sdkman/bin/sdkman-init.sh" ]] && source "/home/michael/.sdkman/bin/sdkman-init.sh"

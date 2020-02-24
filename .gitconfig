@@ -25,19 +25,30 @@
 [difftool]
     prompt = false
 [difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+    cmd = meld $LOCAL $REMOTE
 [merge]
     tool = meld
 [mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld $LOCAL $MERGED $REMOTE --output $MERGED
 [alias]
-    lg = !"git lg1"
-    lg1 = !"git lg1-specific --all"
-    lg2 = !"git lg2-specific --all"
-    lg3 = !"git lg3-specific --all"
+    lg = !git lg1
+    lg1 = !git lg1-specific --all
+    lg2 = !git lg2-specific --all
+    lg3 = !git lg3-specific --all
 
-    lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(dim blue)%s%C(reset) %C(dim black)- %an%C(reset)%C(auto)%d%C(reset)'
-    lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(dim blue)%s%C(reset) %C(dim black)- %an%C(reset)'
-    lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(dim blue)%s%C(reset)%n''          %C(dim black)- %an <%ae> %C(reset) %C(dim black)(committer: %cn <%ce>)%C(reset)'
+    lg1-specific = log --graph --abbrev-commit --decorate --date-order --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(dim blue)%s%C(reset) %C(dim black)- %an%C(reset)%C(auto)%d%C(reset)'
+    lg2-specific = log --graph --abbrev-commit --decorate --date-order --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(dim blue)%s%C(reset) %C(dim black)- %an%C(reset)'
+    lg3-specific = log --graph --abbrev-commit --decorate --date-order --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(dim blue)%s%C(reset)%n''          %C(dim black)- %an <%ae> %C(reset) %C(dim black)(committer: %cn <%ce>)%C(reset)'
+
+    tree = forest --pretty=format:\"%C(red)%h %C(magenta)(%ar) %C(blue)%an %C(reset)%s\" --style=15 --reverse
+
 [credential]
 	helper = cache --timeout 28800
+[filesystem "Private Build|11.0.5|/dev/sda2"]
+	timestampResolution = 6000 nanoseconds
+	minRacyThreshold = 6153 microseconds
+[filesystem "Ubuntu|11.0.6|/dev/sda2"]
+	timestampResolution = 6000 nanoseconds
+	minRacyThreshold = 7049 microseconds
+[cola]
+	spellcheck = false
