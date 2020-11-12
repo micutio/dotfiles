@@ -1,7 +1,4 @@
 # dotfiles
 
-Personal configuration files for various linux-based programs
+Personal configuration files for various unix-based programs
 
-# Branches
-
-Master branch is used for Solus and differs from Ubuntu only in the .bashrc.
