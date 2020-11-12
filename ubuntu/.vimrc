@@ -19,10 +19,10 @@ call plug#begin()
 " Custom Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'zanglg/nova.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'trevordmiller/nova-vim'
-Plug 'nightsense/seagrey'
-Plug 'nightsense/snow'
+"Plug 'trevordmiller/nova-vim'
+Plug 'nerdypepper/agila.vim'
+Plug 'nerdypepper/chestnut.vim'
+Plug 'nerdypepper/vim-colors-plain', {'branch': 'duotone'}
 
 " Nerd tree directory view (loads on demand)
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
@@ -138,6 +138,12 @@ set path+=**
 " Display all matching files when we tab-complete
 set wildmenu
 
+""""""""""""""""
+" Code Folding "
+""""""""""""""""
+
+set foldmethod=syntax
+
 
 """"""""""""""""""""
 " Coloring Options "
@@ -155,12 +161,10 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set hlsearch
 
 " This has to come first
-"set background=dark
+set background=dark
 
 " Enable syntax highlighting
 syntax enable
-
-set termguicolors
 
 " Set color scheme
 colorscheme nova
@@ -172,4 +176,5 @@ hi NonText guibg=NONE ctermbg=NONE
 au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
 
+set termguicolors
 
