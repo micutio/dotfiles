@@ -23,6 +23,8 @@ Plug 'zanglg/nova.vim'
 Plug 'nerdypepper/agila.vim'
 Plug 'nerdypepper/chestnut.vim'
 Plug 'nerdypepper/vim-colors-plain', {'branch': 'duotone'}
+Plug 'barlog-m/oceanic-primal-vim'
+Plug 'adrian5/oceanic-next-vim'
 
 " Nerd tree directory view (loads on demand)
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
@@ -167,7 +169,8 @@ set background=dark
 syntax enable
 
 " Set color scheme
-colorscheme nova
+" colorscheme nova
+colorscheme oceanicnext
 
 " Let the background be normal terminal style to keep consistency
 hi Normal guibg=NONE ctermbg=NONE
