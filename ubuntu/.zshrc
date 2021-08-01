@@ -115,8 +115,8 @@ alias ctc='ssh michaelw@10.25.191.228'
 alias memscan='du -h -s *'
 
 # switch between alacritty dark and light theme
-alias termdark='cp ~/.alacritty_dark.yml ~/.alacritty.yml'
-alias termlight='cp ~/.alacritty_light.yml ~/.alacritty.yml'
+alias darkmode='cp ~/.alacritty_dark.yml ~/.alacritty.yml'
+alias lightmode='cp ~/.alacritty_light.yml ~/.alacritty.yml'
 
 export PATH="$PATH:$HOME/.cargo/bin" # add cargo to PATH for all things rust
 export PATH="$PATH:$HOME/.rvm/bin" # add RVM to PATH for scripting

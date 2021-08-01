@@ -17,11 +17,8 @@
 call plug#begin()
 
 " Custom Colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'zanglg/nova.vim'
-"Plug 'trevordmiller/nova-vim'
-Plug 'nerdypepper/agila.vim'
-Plug 'nerdypepper/chestnut.vim'
+Plug 'relastle/bluewery.vim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'nerdypepper/vim-colors-plain', {'branch': 'duotone'}
 Plug 'barlog-m/oceanic-primal-vim'
 Plug 'adrian5/oceanic-next-vim'
@@ -163,14 +160,23 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set hlsearch
 
 " This has to come first
-set background=dark
+set background=light
 
 " Enable syntax highlighting
 syntax enable
 
 " Set color scheme
-" colorscheme nova
-colorscheme oceanicnext
+" For dark
+command! DarkMode set background=dark | colorscheme bluewery | let g:lightline = { 'colorscheme': 'bluewery' } |set termguicolors
+
+" For light
+command! LightMode set background=light | let ayucolor="light" | colorscheme ayu | let g:lightline = {'colorscheme': 'ayu'} | set termguicolors
+
+set background=light
+let ayucolor="light"
+colorscheme ayu
+let g:lightline = {'colorscheme': 'ayu'}
+set termguicolors
 
 " Let the background be normal terminal style to keep consistency
 hi Normal guibg=NONE ctermbg=NONE
@@ -179,5 +185,4 @@ hi NonText guibg=NONE ctermbg=NONE
 au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
 
-set termguicolors
 
