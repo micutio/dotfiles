@@ -142,6 +142,7 @@ set wildmenu
 """"""""""""""""
 
 set foldmethod=syntax
+set nofoldenable
 
 
 """"""""""""""""""""

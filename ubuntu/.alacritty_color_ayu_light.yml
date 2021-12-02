@@ -9,7 +9,7 @@ colors:
   normal:
     black: '0x000000' #0
     red: '0xf2590b' #1
-    green: '0x76cc00' #2
+    green: '0x76aa00' #2
     yellow: '0xf29717' #3
     blue: '0x41a5d9' #4
     magenta: '0x9965cc' #5
