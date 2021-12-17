@@ -115,8 +115,8 @@ alias ctc='ssh michaelw@10.25.191.228'
 alias memscan='du -h -s *'
 
 # switch between alacritty dark and light theme
-alias darkmode='cp ~/.alacritty_dark.yml ~/.alacritty.yml && gsettings set com.solus-project.budgie-panel dark-theme true'
-alias lightmode='cp ~/.alacritty_light.yml ~/.alacritty.yml && gsettings set com.solus-project.budgie-panel dark-theme false'
+alias darkmode='cp ~/.alacritty_dark.yml ~/.alacritty.yml && gsettings set com.solus-project.budgie-panel dark-theme true && gsettings set org.gnome.desktop.interface gtk-theme "Fluent-pink-dark"'
+alias lightmode='cp ~/.alacritty_light.yml ~/.alacritty.yml && gsettings set com.solus-project.budgie-panel dark-theme false && gsettings set org.gnome.desktop.interface gtk-theme "Fluent-pink-light"'
 
 export PATH="$PATH:$HOME/.cargo/bin" # add cargo to PATH for all things rust
 export PATH="$PATH:$HOME/.rvm/bin" # add RVM to PATH for scripting
