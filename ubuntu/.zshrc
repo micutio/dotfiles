@@ -8,11 +8,8 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="avit"
-#ZSH_THEME="sorin"
-ZSH_THEME="bira"
-#ZSH_THEME="fishy"
+# ZSH_THEME="bira"
+ZSH_THEME="af-magic"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -114,9 +111,23 @@ alias ctc='ssh michaelw@10.25.191.228'
 # inspect memory usage of directory content
 alias memscan='du -h -s *'
 
-# switch between alacritty dark and light theme
-alias darkmode='cp ~/.alacritty_dark.yml ~/.alacritty.yml && gsettings set com.solus-project.budgie-panel dark-theme true && gsettings set org.gnome.desktop.interface gtk-theme "Fluent-pink-dark"'
-alias lightmode='cp ~/.alacritty_light.yml ~/.alacritty.yml && gsettings set com.solus-project.budgie-panel dark-theme false && gsettings set org.gnome.desktop.interface gtk-theme "Fluent-pink-light"'
+dark() {
+  cp ~/.alacritty_dark.yml ~/.alacritty.yml
+  gsettings set com.solus-project.budgie-panel dark-theme true
+  gsettings set org.gnome.desktop.interface gtk-theme "Fluent-pink-dark"
+  gsettings set org.gnome.desktop.interface icon-theme "Fluent-dark"
+  gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/wallpaper/citylights.jpg
+  gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/wallpaper/citylights.jpg
+}
+
+light() {
+  cp ~/.alacritty_light.yml ~/.alacritty.yml
+  gsettings set com.solus-project.budgie-panel dark-theme false
+  gsettings set org.gnome.desktop.interface gtk-theme "Fluent-pink-light"
+  gsettings set org.gnome.desktop.interface icon-theme "Fluent"
+  gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/wallpaper/coast.jpg
+  gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/wallpaper/coast.jpg
+}
 
 export PATH="$PATH:$HOME/.cargo/bin" # add cargo to PATH for all things rust
 export PATH="$PATH:$HOME/.rvm/bin" # add RVM to PATH for scripting
