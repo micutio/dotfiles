@@ -114,19 +114,21 @@ alias memscan='du -h -s *'
 dark() {
   cp ~/.alacritty_dark.yml ~/.alacritty.yml
   gsettings set com.solus-project.budgie-panel dark-theme true
-  gsettings set org.gnome.desktop.interface gtk-theme "Fluent-pink-dark"
+  gsettings set org.gnome.desktop.interface gtk-theme "Fluent-round-pink-dark-compact"
+  gsettings set org.gnome.desktop.wm.preferences theme "Fluent-round-pink-dark-compact"
   gsettings set org.gnome.desktop.interface icon-theme "Fluent-dark"
-  gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/wallpaper/citylights.jpg
-  gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/wallpaper/citylights.jpg
+  gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/Wallpapers/pacific-north-west.jpg
+  gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/Wallpapers/pacific-north-west.jpg
 }
 
 light() {
   cp ~/.alacritty_light.yml ~/.alacritty.yml
   gsettings set com.solus-project.budgie-panel dark-theme false
-  gsettings set org.gnome.desktop.interface gtk-theme "Fluent-pink-light"
+  gsettings set org.gnome.desktop.interface gtk-theme "Fluent-round-pink-light-compact"
+  gsettings set org.gnome.desktop.wm.preferences theme "Fluent-round-pink-light-compact"
   gsettings set org.gnome.desktop.interface icon-theme "Fluent"
-  gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/wallpaper/coast.jpg
-  gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/wallpaper/coast.jpg
+  gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/Wallpapers/beach_drone.jpg
+  gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/Wallpapers/beach_drone.jpg
 }
 
 export PATH="$PATH:$HOME/.cargo/bin" # add cargo to PATH for all things rust
