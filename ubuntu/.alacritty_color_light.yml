@@ -1,28 +1,27 @@
-# Colors (Ayu Light)
 colors:
-  # Default Colors
+  name: Londontube (light)
+  author: Chris Kempson
   primary:
-    background: '0xfafafa'
-    foreground: '0x5b6672'
-
-  # Normal colors
+    background: "#ffffff"
+    foreground: "#5a5758"
+  cursor:
+    text: "#ffffff"
+    cursor: "#5a5758"
   normal:
-    black: '0x000000' #0
-    red: '0xf2590b' #1
-    green: '0x76aa00' #2
-    yellow: '0xf29717' #3
-    blue: '0x41a5d9' #4
-    magenta: '0x9965cc' #5
-    cyan: '0x4dbf98' #6
-    white: '0xc7c7c7' #7
-
-  # Bright colors
+    black: "#231f20"
+    red: "#ee2e24"
+    green: "#00853e"
+    yellow: "#ffd204"
+    blue: "#009ddc"
+    magenta: "#98005d"
+    cyan: "#85cebc"
+    white: "#d9d8d8"
   bright:
-    black: '0x676767'
-    red: '0xd6646a' #9
-    green: '0xa3d900' #10
-    yellow: '0xe7c446' #11
-    blue: '0x6871ff' #12
-    magenta: '0xa37acc' #13
-    cyan: '0x56d9ad' #14
-    white: '0xfeffff' #15
+    black: "#737171"
+    red: "#ee2e24"
+    green: "#00853e"
+    yellow: "#ffd204"
+    blue: "#009ddc"
+    magenta: "#98005d"
+    cyan: "#85cebc"
+    white: "#ffffff"

@@ -1,25 +1,27 @@
-
 colors:
+  name: Londontube (dark)
+  author: Chris Kempson
   primary:
-    # hard contrast: background = '0x1d2021'
-    background: '0x303841'
-    # soft contrast: background = '0x32302f'
-    foreground: '0xd8dee3'
+    background: "#231f20"
+    foreground: "#d9d8d8"
+  cursor:
+    text: "#231f20"
+    cursor: "#d9d8d8"
   normal:
-    black: '0x252b32'
-    red: '0xef5d64'
-    green: '0x5fb485'
-    yellow: '0xf9ae58'
-    blue: '0x6699cc'
-    magenta: '0xc695c6'
-    cyan: '0x5fb4b4'
-    white: '0xd9dee9'
+    black: "#231f20"
+    red: "#ee2e24"
+    green: "#00853e"
+    yellow: "#ffd204"
+    blue: "#009ddc"
+    magenta: "#98005d"
+    cyan: "#85cebc"
+    white: "#d9d8d8"
   bright:
-    black: '0x647382'
-    red: '0xec5f66'
-    green: '0x99C794'
-    yellow: '0xFAC761'
-    blue: '0x5c99d6'
-    magenta: '0xc695c6'
-    cyan: '0x8cc0cf'
-    white: '0xffffff'
+    black: "#737171"
+    red: "#ee2e24"
+    green: "#00853e"
+    yellow: "#ffd204"
+    blue: "#009ddc"
+    magenta: "#98005d"
+    cyan: "#85cebc"
+    white: "#ffffff"
