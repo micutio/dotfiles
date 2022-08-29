@@ -22,7 +22,7 @@ colors:
     white: '#f7f7f7'
     yellow: '#f9ae58'
   primary:
-    background: '#051515'
+    background: '#1d1e22'
     foreground: '#d8dee9'
   selection:
     background: '#4e5a65'
