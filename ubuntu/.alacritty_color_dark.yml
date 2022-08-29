@@ -1,27 +1,30 @@
+# Colors (Mariana)
 colors:
-  name: Londontube (dark)
-  author: Chris Kempson
-  primary:
-    background: "#231f20"
-    foreground: "#d9d8d8"
-  cursor:
-    text: "#231f20"
-    cursor: "#d9d8d8"
-  normal:
-    black: "#231f20"
-    red: "#ee2e24"
-    green: "#00853e"
-    yellow: "#ffd204"
-    blue: "#009ddc"
-    magenta: "#98005d"
-    cyan: "#85cebc"
-    white: "#d9d8d8"
   bright:
-    black: "#737171"
-    red: "#ee2e24"
-    green: "#00853e"
-    yellow: "#ffd204"
-    blue: "#009ddc"
-    magenta: "#98005d"
-    cyan: "#85cebc"
-    white: "#ffffff"
+    black: '#555555'
+    blue: '#85add6'
+    cyan: '#82c4c4'
+    green: '#acd1a8'
+    magenta: '#d8b6d8'
+    red: '#f97b58'
+    white: '#ffffff'
+    yellow: '#fac761'
+  cursor:
+    cursor: '#fcbb6a'
+    text: '#ffffff'
+  normal:
+    black: '#454545'
+    blue: '#6699cc'
+    cyan: '#5fb4b4'
+    green: '#99c794'
+    magenta: '#c695c6'
+    red: '#ec5f66'
+    white: '#f7f7f7'
+    yellow: '#f9ae58'
+  primary:
+    background: '#141414'
+    foreground: '#d8dee9'
+  selection:
+    background: '#4e5a65'
+    text: '#d8dee9'
+
