@@ -40,6 +40,13 @@ set ttyfast                 " Speed up scrolling in Vim
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 
-vim.g.material_style = 'mariana'
-vim.g.material_style_fix = true
+" vim.g.material_style = 'mariana'
+" vim.g.material_style_fix = true
 colorscheme mariana
+
+" Let the background be normal terminal style to keep consistency
+hi Normal guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
+
+au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
