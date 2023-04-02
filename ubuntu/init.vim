@@ -12,6 +12,8 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'kaiuri/nvim-juliana'
 Plug 'ray-x/material_plus.nvim'
+Plug 'markvincze/panda-vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -42,7 +44,7 @@ set ttyfast                 " Speed up scrolling in Vim
 
 " vim.g.material_style = 'mariana'
 " vim.g.material_style_fix = true
-colorscheme mariana
+colorscheme PaperColor
 
 " Let the background be normal terminal style to keep consistency
 hi Normal guibg=NONE ctermbg=NONE
