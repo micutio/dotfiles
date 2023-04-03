@@ -1,3 +1,9 @@
+"if exists('g:vscode')
+    " VSCode extension
+"else
+    " ordinary Neovim
+"endif
+
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -8,6 +14,18 @@ call plug#begin()
 "   - Avoid using standard Vim directory names like 'plugin'
 
 " Make sure you use single quotes
+
+" conditional plugin activation function
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
+" use normal easymotion when in VIM mode
+Plug 'easymotion/vim-easymotion', Cond(!exists('g:vscode'))
+" use VSCode easymotion when in VSCode mode
+Plug 'asvetliakov/vim-easymotion', Cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
+
 
 Plug 'scrooloose/nerdtree'
 Plug 'kaiuri/nvim-juliana'
@@ -65,3 +83,26 @@ hi NonText guibg=NONE ctermbg=NONE
 
 au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 au ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+
+
+" vscode compatibility
+" THEME CHANGER
+function! SetCursorLineNrColorInsert(mode)
+    " Insert mode: blue
+    if a:mode == "i"
+        call VSCodeNotify('nvim-theme.insert')
+
+    " Replace mode: red
+    elseif a:mode == "r"
+        call VSCodeNotify('nvim-theme.replace')
+    endif
+endfunction
+
+augroup CursorLineNrColorSwap
+    autocmd!
+    autocmd ModeChanged *:[vV\x16]* call VSCodeNotify('nvim-theme.visual')
+    autocmd ModeChanged *:[R]* call VSCodeNotify('nvim-theme.replace')
+    autocmd InsertEnter * call SetCursorLineNrColorInsert(v:insertmode)
+    autocmd InsertLeave * call VSCodeNotify('nvim-theme.normal')
+    autocmd CursorHold * call VSCodeNotify('nvim-theme.normal')
+augroup END
