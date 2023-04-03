@@ -111,35 +111,51 @@ alias ctc='ssh michaelw@10.25.191.228'
 # inspect memory usage of directory content
 alias memscan='du -h -s *'
 
+alias vim=nvim
+
+touchoff() {
+    gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled
+}
+
+touchon() {
+    gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled
+}
+
 dark() {
   cp ~/.alacritty_dark.yml ~/.alacritty.yml
-  gsettings set com.solus-project.budgie-panel dark-theme true
-  gsettings set org.gnome.desktop.interface gtk-theme "Fluent-round-pink-dark-compact"
-  gsettings set org.gnome.desktop.wm.preferences theme "Fluent-round-pink-dark-compact"
-  gsettings set org.gnome.desktop.interface icon-theme "Fluent-dark"
-  gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/Wallpapers/pacific-north-west.jpg
-  gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/Wallpapers/pacific-north-west.jpg
+  # gsettings set com.solus-project.budgie-panel dark-theme true
+  # gsettings set org.gnome.desktop.background picture-uri-dark file:////home/michael/Pictures/wallpaper/dark.jpg
+  # gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/wallpaper/dark.jpg
+  # gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+  # gsettings set org.gnome.desktop.wm.preferences theme "Adwaita-dark"
+  # gsettings set org.gnome.shell.extensions.user-theme name "Adwaita-dark"
+  # gsettings set org.gnome.desktop.interface icon-theme "Fluent-dark"
+  # gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 }
 
 light() {
   cp ~/.alacritty_light.yml ~/.alacritty.yml
-  gsettings set com.solus-project.budgie-panel dark-theme false
-  gsettings set org.gnome.desktop.interface gtk-theme "Fluent-round-pink-light-compact"
-  gsettings set org.gnome.desktop.wm.preferences theme "Fluent-round-pink-light-compact"
-  gsettings set org.gnome.desktop.interface icon-theme "Fluent"
-  gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/Wallpapers/beach_drone.jpg
-  gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/Wallpapers/beach_drone.jpg
+  # gsettings set com.solus-project.budgie-panel dark-theme false
+  # gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/wallpaper/coast.jpg
+  # gsettings set org.gnome.desktop.screensaver picture-uri file:////home/michael/Pictures/Wallpaper/coast.jpg
+  # gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+  # gsettings set org.gnome.desktop.wm.preferences theme "Adwaita"
+  # gsettings set org.gnome.shell.extensions.user-theme name "Adwaita"
+  # gsettings set org.gnome.desktop.interface icon-theme "Fluent"
+  # gsettings set org.gnome.desktop.interface color-scheme prefer-light
 }
 
 export PATH="$PATH:$HOME/.cargo/bin" # add cargo to PATH for all things rust
 export PATH="$PATH:$HOME/.rvm/bin" # add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/go/bin"
 
 alias config='/usr/bin/git --git-dir=/home/michael/.cfg/ --work-tree=/home/michael'
 alias clang-format-7='clang-format'
 
 export JAVA_HOME="/home/michael/.sdkman/candidates/java/current"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export STEAM_RUNTIME_PREFER_HOST_LIBRARIES=0
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/michael/.sdkman"
