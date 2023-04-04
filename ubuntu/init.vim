@@ -64,6 +64,8 @@ set ttyfast                 " Speed up scrolling in Vim
 " vim.g.material_style_fix = true
 colorscheme PaperColor
 
+set clipboard+=unnamedplus
+
 " key map
 map <Esc>j <A-j>
 
