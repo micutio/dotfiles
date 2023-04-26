@@ -31,3 +31,6 @@ vim.g.mapleader = " "
 
 vim.o.clipboard = "unnamedplus"
 
+-- auto-format on save
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
