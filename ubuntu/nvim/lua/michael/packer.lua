@@ -23,6 +23,11 @@ use {"savq/melange-nvim", as = 'melange'}
 use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
 use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
+
+use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
   requires = {
