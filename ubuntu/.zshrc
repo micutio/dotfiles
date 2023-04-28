@@ -111,7 +111,7 @@ alias ctc='ssh michaelw@10.25.191.228'
 # inspect memory usage of directory content
 alias memscan='du -h -s *'
 
-alias vim=nvim
+#alias vim="stty stop '' -ixoff ; nvim"
 
 touchoff() {
     gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled
