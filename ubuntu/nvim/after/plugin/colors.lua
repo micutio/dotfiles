@@ -1,5 +1,5 @@
 
-function checkGsettings(color)
+local function checkGsettings(color)
     local handle = io.popen("gsettings get org.gnome.desktop.interface color-scheme")
     local result = handle:read("*a")
    
