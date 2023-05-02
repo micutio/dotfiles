@@ -19,6 +19,8 @@ use {'Mofiqul/adwaita.nvim', as = 'adwaita'}
 use {'nyoom-engineering/oxocarbon.nvim', as = 'oxocarbon'}
 
 use {"savq/melange-nvim", as = 'melange'}
+use {'shaunsingh/nord.nvim', as = "nord"}
+use { 'embark-theme/vim', as = 'embark'}
 
 use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
