@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  embark = {
-    loaded = true,
-    path = "/home/michael/.local/share/nvim/site/pack/packer/start/embark",
-    url = "https://github.com/embark-theme/vim"
-  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -123,11 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
-  },
-  nord = {
-    loaded = true,
-    path = "/home/michael/.local/share/nvim/site/pack/packer/start/nord",
-    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,
