@@ -15,7 +15,7 @@ end
 
 
 function ColorMyPencils(lightTheme, darkTheme)
-    lightTheme = lightTheme or "adwaita"
+    lightTheme = lightTheme or "default"
     darkTheme = darkTheme or lightTheme
     pickColorFromGSettings(lightTheme, darkTheme)
 
@@ -23,4 +23,4 @@ function ColorMyPencils(lightTheme, darkTheme)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-ColorMyPencils("rose-pine", "poimandres")
+ColorMyPencils("rose-pine-dawn", "rose-pine-moon")
