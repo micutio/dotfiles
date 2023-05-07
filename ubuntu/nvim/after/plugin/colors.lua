@@ -14,7 +14,7 @@ end
 
 
 function ColorMyPencils(color)
-	color = color or "oxocarbon"
+	color = color or "adwaita"
     checkGsettings()
     vim.cmd.colorscheme(color)
 
