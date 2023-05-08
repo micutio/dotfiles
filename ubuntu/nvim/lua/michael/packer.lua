@@ -18,7 +18,9 @@ return require('packer').startup(function(use)
     use { 'nyoom-engineering/oxocarbon.nvim', as = 'oxocarbon' }
 
     use { "savq/melange-nvim", as = 'melange' }
-
+    
+    use { "markvincze/panda-vim", as = 'panda'}
+    
     use {
         'olivercederborg/poimandres.nvim',
         config = function()
