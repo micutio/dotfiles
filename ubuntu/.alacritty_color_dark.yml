@@ -1,30 +1,34 @@
-# Colors (Mariana)
-colors:
-  bright:
-    black: '#555555'
-    blue: '#85add6'
-    cyan: '#82c4c4'
-    green: '#acd1a8'
-    magenta: '#d8b6d8'
-    red: '#f97b58'
-    white: '#ffffff'
-    yellow: '#fac761'
-  cursor:
-    cursor: '#fcbb6a'
-    text: '#ffffff'
-  normal:
-    black: '#454545'
-    blue: '#6699cc'
-    cyan: '#5fb4b4'
-    green: '#99c794'
-    magenta: '#c695c6'
-    red: '#ec5f66'
-    white: '#f7f7f7'
-    yellow: '#f9ae58'
-  primary:
-    background: '#1d1e22'
-    foreground: '#d8dee9'
-  selection:
-    background: '#4e5a65'
-    text: '#d8dee9'
+# Colors (Panda)
+  colors:
+    # Default colors
+    primary:
+      background: '0x292A2B'
+      foreground: '0xeaeaea'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0x000000'
+      cursor: '0xffffff'
+
+    # Normal colors
+    normal:
+      black:   '0x3d3e40'
+      red:     '0xFF2C6D'
+      green:   '0x19f9d8'
+      yellow:  '0xFFB86C'
+      blue:    '0x45A9F9'
+      magenta: '0xFF75B5'
+      cyan:    '0x19f9d8'
+      white:   '0xf3f3f3'
+
+    # Bright colors
+    bright:
+      black:   '0x373b41'
+      red:     '0xff3334'
+      green:   '0x41fadf'
+      yellow:  '0xffcc95'
+      blue:    '0x6FC1FF'
+      magenta: '0xff9ecb'
+      cyan:    '0x41fadf'
+      white:   '0xf8f8f8'
 
