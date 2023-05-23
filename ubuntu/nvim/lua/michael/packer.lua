@@ -32,6 +32,27 @@ return require('packer').startup(function(use)
         end
     }
 
+    use { "EdenEast/nightfox.nvim",
+        config = function()
+            require('nightfox').setup{
+                transparent = true,
+                dim_inactive = true,
+                styles = {
+                    comments = "italic",
+                    -- conditionals = "NONE",
+                    constants = "standout",
+                    -- functions = "NONE",
+                    -- keywords = "NONE",
+                    -- numbers = "NONE",
+                    -- operators = "NONE",
+                    -- strings = "NONE",
+                    -- types = "NONE",
+                    -- variables = "NONE",
+                }
+            }
+        end
+}
+
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
