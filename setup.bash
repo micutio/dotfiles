@@ -19,8 +19,8 @@ printf "\nStage  1 - initial update --------------------------------------------
 sudo zypper dup --no-confirm
 
 printf "\nStage  2 - install standard programs from distro repos -------------------------\n"
-sudo zypper install -t pattern devel_basis devel_C_C++ devel_python3 --no-confirm
-sudo zypper install htop git tmux zsh neovim curl wget --no-confirm
+sudo zypper install --no-confirm -t pattern devel_basis devel_C_C++ devel_python3
+sudo zypper install --no-confirm htop git tmux zsh neovim curl wget
 
 printf "\nStage  3 - install vscode ------------------------------------------------------\n"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -40,7 +40,7 @@ cargo install bottom
 cargo install bat
 
 printf "\nStage  6 - install alacritty ---------------------------------------------------\n"
-zypper install cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel
+sudo zypper install --no-confirm cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel
 git clone https://github.com/alacritty/alacritty.git ~/dev/other/
 cd ~/dev/other/alacritty
 cargo build --release --features=wayland --features=x11
@@ -53,7 +53,7 @@ sudo update-desktop-database
 printf "\nStage  7 - install vivaldi -----------------------------------------------------\n"
 sudo zypper ar -f https://repo.vivaldi.com/stable/rpm/x86_64/
 sudo rpm --import https://repo.vivaldi.com/stable/linux_signing_key.pub
-sudo zypper install vivaldi-stable
+sudo zypper install --no-confirm vivaldi-stable
 
 printf "\nStage  8 - install sdkman ------------------------------------------------------\n"
 curl -s "https://get.sdkman.io" | bash
@@ -62,7 +62,7 @@ printf "\nStage  9 - install snap ----------------------------------------------
 sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
 sudo zypper --gpg-auto-import-keys refresh
 sudo zypper dup --from snappy
-sudo zypper install snapd
+sudo zypper install --no-confirm snapd
 sudo systemctl enable --now snapd
 sudo systemctl enable --now snapd.apparmor
 # need to reboot before installing snap apps
