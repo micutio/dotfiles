@@ -43,25 +43,21 @@ _validate_setup_mode() {
 # Setup steps ################################################################
 
 _setup_directories() {
-    printf "set up personal folder structure ------------------------------------\n\n"
     mkdir -p ~/dev/personal
     mkdir -p ~/dev/other
     mkdir -p ~/bin
 }
 
 _setup_initial_update() {
-    printf "initial update ------------------------------------------------------\n\n"
     sudo zypper dup --no-confirm
 }
 
 _setup_standard_programs() {
-    printf "install standard programs from distro repos -------------------------\n\n"
     sudo zypper install --no-confirm -t pattern devel_basis devel_C_C++ devel_python3
     sudo zypper install --no-confirm htop git tmux zsh neovim curl wget
 }
 
 _setup_vscode() {
-    printf "install vscode ------------------------------------------------------\n\n"
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
     sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
     sudo zypper refresh
@@ -69,14 +65,12 @@ _setup_vscode() {
 }
 
 _setup_zsh() {
-    printf "install oh my zsh and plugins ---------------------------------------\n\n"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 }
 
 _setup_rust() {
-    printf "install rust and associated programs --------------------------------\n\n"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     rustup update stable
     cargo install bottom
@@ -84,7 +78,6 @@ _setup_rust() {
 }
 
 _setup_alacritty() {
-    printf "install alacritty ---------------------------------------------------\n\n"
     sudo zypper install --no-confirm cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel
     git clone https://github.com/alacritty/alacritty.git ~/dev/other/
     cd ~/dev/other/alacritty
@@ -97,19 +90,16 @@ _setup_alacritty() {
 }
 
 _setup_vivaldi() {
-    printf "install vivaldi -----------------------------------------------------\n\n"
     sudo zypper ar -f https://repo.vivaldi.com/stable/rpm/x86_64/
     sudo rpm --import https://repo.vivaldi.com/stable/linux_signing_key.pub
     sudo zypper install --no-confirm vivaldi-stable
 }
 
 _setup_sdkman() {
-    printf "install sdkman ------------------------------------------------------\n\n"
     curl -s "https://get.sdkman.io" | bash
 }
 
 _setup_snap() {
-    printf "install snap --------------------------------------------------------\n\n"
     sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
     sudo zypper --gpg-auto-import-keys refresh
     sudo zypper dup --from snappy
@@ -120,14 +110,12 @@ _setup_snap() {
 }
 
 _setup_wallpapers() {
-    printf "set preferred dark and light wallpapers -----------------------------\n\n"
     mkdir -p /home/michael/Pictures/wallpaper
     gsettings set org.gnome.desktop.background picture-uri-dark file:////home/michael/Pictures/wallpaper/dark.jpg
     gsettings set org.gnome.desktop.background picture-uri file:////home/michael/Pictures/wallpaper/light.jpg
 }
 
 _setup_ssh_key() {
-    printf "create ssh key for github -------------------------------------------\n\n"
     ssh-keygen -t ed25519 -C "wagner.mchl@googlemail.com"
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
@@ -135,7 +123,6 @@ _setup_ssh_key() {
 }
 
 _setup_firewall() {
-    printf "configure firewall to lat GSConnect work ----------------------------\n\n"
     sudo firewall-cmd --permanent --new-service=GSConnect
     sudo firewall-cmd --permanent --service=GSConnect --set-description="KDE Connect implementation for GNOME"
     sudo firewall-cmd --permanent --service=GSConnect --set-short="GSConnect"
@@ -148,13 +135,11 @@ _setup_firewall() {
 }
 
 _post_setup_dotfiles() {
-    printf "download dotfiles and copy to home ----------------------------------\n\n"
     git clone git@github.com:Micutio/dotfiles.git ~/dev/personal
     cp -r ~/dev/personal/dotfiles/general/. ~ 
 }
 
 _post_setup_gsettings_monitor() {
-    printf "download gsettings monitor and add to autostart ---------------------\n\n"
     touch ~/.config/autostart/gsettings-monitor.desktop
     cat <<EOF >> ~/.config/autostart/gsettings-monitor.desktop
     [Desktop Entry]
@@ -169,16 +154,13 @@ EOF
 }
 
 _opt_setup_nvidia_drivers() {
-    printf "install nVidia drivers ----------------------------------------------\n\n"
     sudo zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
     sudo zypper search -s x11-video-nvidiaG0* nvidia-video-G06*
     sudo zypper install nvidia-video-G06 --no-confirm
     sudo zypper install nvidia-gl-G06 --no-confirm
-    printf "\n\ndone, better reboot now ---------------------------------------------\n\n"
 }
 
 _opt_setup_intellij() {
-    printf "install snap apps ---------------------------------------------------\n\n"
     snap install intellij-idea-community --classic
 }
 
@@ -277,6 +259,10 @@ main() {
                 _show_steps
                 exit 0
                 ;;
+            *)
+                echo "Unknown option $1"
+                exit 1
+                ;;
         esac
         
         if (( SETUP_MODE == -1 )) then
@@ -292,34 +278,43 @@ main() {
 
     if [[ SETUP_MODE -eq 0 ]]; then
         if [[ individual_step -ne -1 ]]; then
-            printf "executing initial setup step %d - %s:" "${individual_step}" "${INITIAL_SETUP_DESCRIPTIONS[$individual_step]}"
+            printf "[system setup] executing initial setup step %d - %s\n" "${individual_step}" "${INITIAL_SETUP_DESCRIPTIONS[$individual_step]}"
             ${INITIAL_SETUP_FUNCTIONS["$individual_step"]}
-            printf "executing initial setup step done\n"
+            printf "[system setup] executing initial setup step %d done\n" "${individual_step}"
         else
-            for i in "${!INITIAL_SETUP_FUNCTIONS[@]}"; do ${INITIAL_SETUP_FUNCTIONS[i]}; done
-            printf "\nInitial setup is done. REBOOT and add ssh key to github to continue ------------\n\n"
+            for i in "${!INITIAL_SETUP_FUNCTIONS[@]}"; do 
+            printf "[system setup] step %d - %s\n" "${individual_step}" "${INITIAL_SETUP_DESCRIPTIONS[$individual_step]}"
+                ${INITIAL_SETUP_FUNCTIONS[i]}
+            done
+            printf "\n[system setup] Initial setup is done. REBOOT and add ssh key to github to continue\n\n"
         fi
     fi
 
     if [[ SETUP_MODE -eq 1 ]]; then
         if [[ individual_step -ne -1 ]]; then
-            printf "executing post-setup step %d :", "${individual_step}"
+            printf "[system setup] executing post-setup step %d\n" "${individual_step}"
             "${POST_SETUP_FUNCTIONS[$individual_step]}"
-            printf "executing post-setup step done\n"
+            printf "[system setup] executing post-setup step %d done\n" "${individual_step}"
         else
-            for i in "${!POST_SETUP_FUNCTIONS[@]}"; do ${POST_SETUP_FUNCTIONS[i]}; done
-            printf "\nPost-setup is done -------------------------------------------------------------\n\n"
+            for i in "${!POST_SETUP_FUNCTIONS[@]}"; do 
+            printf "[system setup] step %d - %s\n" "${individual_step}" "${POST_SETUP_DESCRIPTIONS[$individual_step]}"
+                ${POST_SETUP_FUNCTIONS[i]}
+            done
+            printf "\n[system setup] Post-setup is done\n\n"
         fi
     fi
 
     if [[ SETUP_MODE -eq 2 ]] ; then
         if [[ individual_step -ne -1 ]]; then
-            printf "executing optional setup step %d :", "${individual_step}"
+            printf "[system setup] executing optional setup step %d\n", "${individual_step}"
             "${OPT_SETUP_FUNCTIONS[$individual_step]}"
-            printf "executing optional setup step done\n"
+            printf "[systemsetup] executing optional setup step %d done\n" "${individual_step}"
         else
-            for i in "${!OPT_SETUP_FUNCTIONS[@]}"; do ${OPT_SETUP_FUNCTIONS[i]}; done
-            printf "\nOptional setup is done. REBOOT and add ssh key to github to continue ------------\n\n"
+            for i in "${!OPT_SETUP_FUNCTIONS[@]}"; do 
+            printf "[system setup] step %d - %s\n" "${individual_step}" "${OPT_SETUP_DESCRIPTIONS[$individual_step]}"
+                ${OPT_SETUP_FUNCTIONS[i]}
+            done
+            printf "\n[system setup] Optional setup is done\n\n"
         fi
     fi
 
