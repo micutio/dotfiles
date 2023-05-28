@@ -308,7 +308,7 @@ main() {
         if [[ individual_step -ne -1 ]]; then
             printf "[system setup] executing optional setup step %d\n", "${individual_step}"
             "${OPT_SETUP_FUNCTIONS[$individual_step]}"
-            printf "[systemsetup] executing optional setup step %d done\n" "${individual_step}"
+            printf "[system setup] executing optional setup step %d done\n" "${individual_step}"
         else
             for i in "${!OPT_SETUP_FUNCTIONS[@]}"; do 
             printf "[system setup] step %d - %s\n" "${individual_step}" "${OPT_SETUP_DESCRIPTIONS[$individual_step]}"
