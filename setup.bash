@@ -71,7 +71,7 @@ _setup_zsh() {
 }
 
 _setup_rust() {
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     rustup update stable
     cargo install bottom
     cargo install bat
