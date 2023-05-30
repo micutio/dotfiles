@@ -61,7 +61,7 @@ _setup_vscode() {
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
     sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
     sudo zypper refresh
-    sudo zypper install code
+    sudo zypper install --no-confirm code
 }
 
 _setup_zsh() {
@@ -79,7 +79,7 @@ _setup_rust() {
 
 _setup_alacritty() {
     sudo zypper install --no-confirm cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel
-    git clone https://github.com/alacritty/alacritty.git ~/dev/other/
+    git clone https://github.com/alacritty/alacritty.git ~/dev/other/alacritty
     cd ~/dev/other/alacritty
     cargo build --release --features=wayland --features=x11
     sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
@@ -90,13 +90,14 @@ _setup_alacritty() {
 }
 
 _setup_vivaldi() {
-    sudo zypper ar -f https://repo.vivaldi.com/stable/rpm/x86_64/
+    sudo zypper ar https://repo.vivaldi.com/archive/vivaldi-suse.repo
     sudo rpm --import https://repo.vivaldi.com/stable/linux_signing_key.pub
     sudo zypper install --no-confirm vivaldi-stable
 }
 
 _setup_sdkman() {
     curl -s "https://get.sdkman.io" | bash
+    #source "/home/michael/.sdkman/bin/sdkman-init.sh"
 }
 
 _setup_snap() {
@@ -173,8 +174,8 @@ INITIAL_SETUP_DESCRIPTIONS[3]="install vscode"
 INITIAL_SETUP_DESCRIPTIONS[4]="install zsh and omz" 
 INITIAL_SETUP_DESCRIPTIONS[5]="install rust" 
 INITIAL_SETUP_DESCRIPTIONS[6]="install alacritty" 
-INITIAL_SETUP_DESCRIPTIONS[7]="install sdkman" 
-INITIAL_SETUP_DESCRIPTIONS[8]="install vivaldi" 
+INITIAL_SETUP_DESCRIPTIONS[7]="install vivaldi" 
+INITIAL_SETUP_DESCRIPTIONS[8]="install sdkman" 
 INITIAL_SETUP_DESCRIPTIONS[9]="set up dark and light wallpaper" 
 INITIAL_SETUP_DESCRIPTIONS[10]="create ssh key" 
 INITIAL_SETUP_DESCRIPTIONS[11]="set up firewall" 
@@ -283,7 +284,7 @@ main() {
             printf "[system setup] executing initial setup step %d done\n" "${individual_step}"
         else
             for i in "${!INITIAL_SETUP_FUNCTIONS[@]}"; do 
-            printf "[system setup] step %d - %s\n" "${individual_step}" "${INITIAL_SETUP_DESCRIPTIONS[$individual_step]}"
+            printf "[system setup] step %d - %s\n" "${i}" "${INITIAL_SETUP_DESCRIPTIONS[i]}"
                 ${INITIAL_SETUP_FUNCTIONS[i]}
             done
             printf "\n[system setup] Initial setup is done. REBOOT and add ssh key to github to continue\n\n"
