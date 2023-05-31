@@ -66,6 +66,7 @@ _setup_vscode() {
 
 _setup_zsh() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    # export ZSH_CUSTOM="~/.oh-my-zsh/custom"
     git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 }
@@ -75,6 +76,11 @@ _setup_rust() {
     rustup update stable
     cargo install bottom
     cargo install bat
+}
+
+_setup_golang() {
+    # TODO: install go to be able to build this
+    curl -L https://git.io/vQhTU | bash -s -- --version 1.18
 }
 
 _setup_alacritty() {
@@ -136,11 +142,15 @@ _setup_firewall() {
 }
 
 _post_setup_dotfiles() {
-    git clone git@github.com:Micutio/dotfiles.git ~/dev/personal
+    git clone git@github.com:Micutio/dotfiles.git ~/dev/personal/dotfiles
     cp -r ~/dev/personal/dotfiles/general/. ~ 
 }
 
 _post_setup_gsettings_monitor() {
+    git clone git@github.com:Micutio/gsettings-monitor.git ~/dev/personal/gsettings-monitor
+    cd ~/dev/personal/gsettings-monitor
+    go build .
+    mv gsettings-monitor ~/bin/
     touch ~/.config/autostart/gsettings-monitor.desktop
     cat <<EOF >> ~/.config/autostart/gsettings-monitor.desktop
     [Desktop Entry]
@@ -173,12 +183,13 @@ INITIAL_SETUP_DESCRIPTIONS[2]="install standard programs"
 INITIAL_SETUP_DESCRIPTIONS[3]="install vscode" 
 INITIAL_SETUP_DESCRIPTIONS[4]="install zsh and omz" 
 INITIAL_SETUP_DESCRIPTIONS[5]="install rust" 
-INITIAL_SETUP_DESCRIPTIONS[6]="install alacritty" 
-INITIAL_SETUP_DESCRIPTIONS[7]="install vivaldi" 
-INITIAL_SETUP_DESCRIPTIONS[8]="install sdkman" 
-INITIAL_SETUP_DESCRIPTIONS[9]="set up dark and light wallpaper" 
-INITIAL_SETUP_DESCRIPTIONS[10]="create ssh key" 
-INITIAL_SETUP_DESCRIPTIONS[11]="set up firewall" 
+INITIAL_SETUP_DESCRIPTIONS[6]="install golang" 
+INITIAL_SETUP_DESCRIPTIONS[7]="install alacritty" 
+INITIAL_SETUP_DESCRIPTIONS[8]="install vivaldi" 
+INITIAL_SETUP_DESCRIPTIONS[9]="install sdkman" 
+INITIAL_SETUP_DESCRIPTIONS[10]="set up dark and light wallpaper" 
+INITIAL_SETUP_DESCRIPTIONS[11]="create ssh key" 
+INITIAL_SETUP_DESCRIPTIONS[12]="set up firewall" 
 
 declare -a INITIAL_SETUP_FUNCTIONS
 INITIAL_SETUP_FUNCTIONS[0]="_setup_directories"
@@ -187,12 +198,13 @@ INITIAL_SETUP_FUNCTIONS[2]="_setup_standard_programs"
 INITIAL_SETUP_FUNCTIONS[3]="_setup_vscode"
 INITIAL_SETUP_FUNCTIONS[4]="_setup_zsh"
 INITIAL_SETUP_FUNCTIONS[5]="_setup_rust"
-INITIAL_SETUP_FUNCTIONS[6]="_setup_alacritty"
-INITIAL_SETUP_FUNCTIONS[7]="_setup_vivaldi"
-INITIAL_SETUP_FUNCTIONS[8]="_setup_sdkman"
-INITIAL_SETUP_FUNCTIONS[9]="_setup_wallpapers"
-INITIAL_SETUP_FUNCTIONS[10]="_setup_ssh_key"
-INITIAL_SETUP_FUNCTIONS[11]="_setup_firewall"
+INITIAL_SETUP_FUNCTIONS[6]="_setup_golang"
+INITIAL_SETUP_FUNCTIONS[7]="_setup_alacritty"
+INITIAL_SETUP_FUNCTIONS[8]="_setup_vivaldi"
+INITIAL_SETUP_FUNCTIONS[9]="_setup_sdkman"
+INITIAL_SETUP_FUNCTIONS[10]="_setup_wallpapers"
+INITIAL_SETUP_FUNCTIONS[11]="_setup_ssh_key"
+INITIAL_SETUP_FUNCTIONS[12]="_setup_firewall"
 
 declare -a POST_SETUP_DESCRIPTIONS
 POST_SETUP_DESCRIPTIONS[0]="download dotfiles"
