@@ -73,6 +73,7 @@ _setup_zsh() {
 
 _setup_rust() {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source "$HOME/.cargo/env"
     rustup update stable
     cargo install bottom
     cargo install bat
@@ -141,9 +142,12 @@ _setup_firewall() {
     sudo firewall-cmd --reload
 }
 
-_post_setup_dotfiles() {
-    git clone git@github.com:Micutio/dotfiles.git ~/dev/personal/dotfiles
-    cp -r ~/dev/personal/dotfiles/general/. ~ 
+_setup_cascadia_font() {
+    cd ~/Downloads
+    wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip
+    unzip CascadiaCode-2111.01.zip -d cascadias
+    cp -r cascadia ~/.local/share/fonts
+    fc-cache -f -v
 }
 
 _post_setup_gsettings_monitor() {
@@ -167,8 +171,8 @@ EOF
 _opt_setup_nvidia_drivers() {
     sudo zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
     sudo zypper search -s x11-video-nvidiaG0* nvidia-video-G06*
-    sudo zypper install nvidia-video-G06 --no-confirm
-    sudo zypper install nvidia-gl-G06 --no-confirm
+    sudo zypper install nvidia-video-G06
+    sudo zypper install nvidia-gl-G06
 }
 
 _opt_setup_intellij() {
@@ -334,3 +338,4 @@ main() {
 }
 
 main "$@"
+
