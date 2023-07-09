@@ -55,6 +55,7 @@ _setup_initial_update() {
 _setup_standard_programs() {
     sudo zypper install --no-confirm -t pattern devel_basis devel_C_C++ devel_python3
     sudo zypper install --no-confirm htop git tmux zsh neovim curl wget
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 
 _setup_vscode() {
@@ -191,9 +192,10 @@ INITIAL_SETUP_DESCRIPTIONS[6]="install golang"
 INITIAL_SETUP_DESCRIPTIONS[7]="install alacritty" 
 INITIAL_SETUP_DESCRIPTIONS[8]="install vivaldi" 
 INITIAL_SETUP_DESCRIPTIONS[9]="install sdkman" 
-INITIAL_SETUP_DESCRIPTIONS[10]="set up dark and light wallpaper" 
-INITIAL_SETUP_DESCRIPTIONS[11]="create ssh key" 
-INITIAL_SETUP_DESCRIPTIONS[12]="set up firewall" 
+INITIAL_SETUP_DESCRIPTIONS[10]="setup snap"
+INITIAL_SETUP_DESCRIPTIONS[11]="set up dark and light wallpaper" 
+INITIAL_SETUP_DESCRIPTIONS[12]="create ssh key" 
+INITIAL_SETUP_DESCRIPTIONS[13]="set up firewall" 
 
 declare -a INITIAL_SETUP_FUNCTIONS
 INITIAL_SETUP_FUNCTIONS[0]="_setup_directories"
@@ -206,9 +208,10 @@ INITIAL_SETUP_FUNCTIONS[6]="_setup_golang"
 INITIAL_SETUP_FUNCTIONS[7]="_setup_alacritty"
 INITIAL_SETUP_FUNCTIONS[8]="_setup_vivaldi"
 INITIAL_SETUP_FUNCTIONS[9]="_setup_sdkman"
-INITIAL_SETUP_FUNCTIONS[10]="_setup_wallpapers"
-INITIAL_SETUP_FUNCTIONS[11]="_setup_ssh_key"
-INITIAL_SETUP_FUNCTIONS[12]="_setup_firewall"
+INITIAL_SETUP_FUNCTIONS[10]="_setup_snap"
+INITIAL_SETUP_FUNCTIONS[11]="_setup_wallpapers"
+INITIAL_SETUP_FUNCTIONS[12]="_setup_ssh_key"
+INITIAL_SETUP_FUNCTIONS[13]="_setup_firewall"
 
 declare -a POST_SETUP_DESCRIPTIONS
 POST_SETUP_DESCRIPTIONS[0]="download dotfiles"
