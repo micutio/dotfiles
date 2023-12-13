@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
+local package_path_str = "C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1694082368\\share\\lua\\5.1\\?.lua;C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1694082368\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1694082368\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1694082368\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
+local install_cpath_pattern = "C:\\Users\\WA_MICHA\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1694082368\\lib\\lua\\5.1\\?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\WA_MICHA\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\WA_MICHA\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "C:\\Users\\WA_MICHA\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-zero.nvim",
@@ -120,7 +125,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
   ["nightfox.nvim"] = {
-    config = { "\27LJ\2\n構1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\vstyles\1\0\2\rcomments\vitalic\14constants\rstandout\1\0\2\17dim_inactive\2\16transparent\2\nsetup\rnightfox\frequire\0" },
+    config = { "\27LJ\2\n構1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\vstyles\1\0\2\14constants\rstandout\rcomments\vitalic\1\0\2\16transparent\2\17dim_inactive\2\nsetup\rnightfox\frequire\0" },
     loaded = true,
     path = "C:\\Users\\WA_MICHA\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
@@ -171,6 +176,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\WA_MICHA\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\panda",
     url = "https://github.com/markvincze/panda-vim"
   },
+  papercolor = {
+    loaded = true,
+    path = "C:\\Users\\WA_MICHA\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\papercolor",
+    url = "https://github.com/NLKNguyen/papercolor-theme"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "C:\\Users\\WA_MICHA\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
@@ -202,7 +212,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: nightfox.nvim
 time([[Config for nightfox.nvim]], true)
-try_loadstring("\27LJ\2\n構1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\vstyles\1\0\2\rcomments\vitalic\14constants\rstandout\1\0\2\17dim_inactive\2\16transparent\2\nsetup\rnightfox\frequire\0", "config", "nightfox.nvim")
+try_loadstring("\27LJ\2\n構1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\vstyles\1\0\2\14constants\rstandout\rcomments\vitalic\1\0\2\16transparent\2\17dim_inactive\2\nsetup\rnightfox\frequire\0", "config", "nightfox.nvim")
 time([[Config for nightfox.nvim]], false)
 -- Config for: poimandres.nvim
 time([[Config for poimandres.nvim]], true)

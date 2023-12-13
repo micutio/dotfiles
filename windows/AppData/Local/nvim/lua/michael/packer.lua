@@ -18,9 +18,11 @@ return require('packer').startup(function(use)
     use { 'nyoom-engineering/oxocarbon.nvim', as = 'oxocarbon' }
 
     use { "savq/melange-nvim", as = 'melange' }
-    
+
     use { "markvincze/panda-vim", as = 'panda'}
-    
+
+    use { "NLKNguyen/papercolor-theme", as = 'papercolor' }
+
     use {
         'olivercederborg/poimandres.nvim',
         config = function()
@@ -33,69 +35,72 @@ return require('packer').startup(function(use)
     }
 
     use { "EdenEast/nightfox.nvim",
-        config = function()
-            require('nightfox').setup{
-                transparent = true,
-                dim_inactive = true,
-                styles = {
-                    comments = "italic",
-                    -- conditionals = "NONE",
-                    constants = "standout",
-                    -- functions = "NONE",
-                    -- keywords = "NONE",
-                    -- numbers = "NONE",
-                    -- operators = "NONE",
-                    -- strings = "NONE",
-                    -- types = "NONE",
-                    -- variables = "NONE",
-                }
+    config = function()
+        require('nightfox').setup{
+            transparent = true,
+            dim_inactive = true,
+            styles = {
+                comments = "italic",
+                -- conditionals = "NONE",
+                constants = "standout",
+                -- functions = "NONE",
+                -- keywords = "NONE",
+                -- numbers = "NONE",
+                -- operators = "NONE",
+                -- strings = "NONE",
+                -- types = "NONE",
+                -- variables = "NONE",
             }
-        end
+        }
+    end
 }
 
-    use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    require('ufo').setup({
-        provider_selector = function(bufnr, filetype, buftype)
-            return { 'treesitter', 'indent' }
-        end
-    })
+use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+require('ufo').setup({
+    provider_selector = function(bufnr, filetype, buftype)
+        return { 'treesitter', 'indent' }
+    end
+})
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
+
+use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    requires = {
+        -- LSP Support
+        { 'neovim/nvim-lspconfig' }, -- Required
+        {
+            -- Optional
+            'williamboman/mason.nvim',
+            run = function()
+                pcall(vim.cmd, 'MasonUpdate')
+            end,
+        },
+        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+        -- Autocompletion
+        { 'hrsh7th/nvim-cmp' },     -- Required
+        { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+        { 'L3MON4D3/LuaSnip' },     -- Required
     }
+}
 
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {
-                -- Optional
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
-        }
+use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
     }
+}
 
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        }
-    }
+use "sindrets/diffview.nvim"
+
 end)
