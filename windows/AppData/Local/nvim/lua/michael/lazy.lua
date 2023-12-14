@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -12,23 +13,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.x',
+		'nvim-telescope/telescope.nvim', branch = '0.1.x',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
-
 	{ 'rose-pine/neovim', name = 'rose-pine' },
-
 	{ "savq/melange-nvim", name = 'melange' },
-
 	{ "markvincze/panda-vim", name = 'panda'},
-
 	{ "NLKNguyen/papercolor-theme", name = 'papercolor' },
-
-	{ 
+	{
 		"kevinhwang91/nvim-ufo",
-		dependencies = 'kevinhwang91/promise-async'
+		dependencies = 'kevinhwang91/promise-async',
 		event = "BufRead",
 		keys = {
 			{ "zR", function() require("ufo").openAllFolds() end },
@@ -50,7 +45,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
@@ -62,12 +56,10 @@ require("lazy").setup({
 			})
 		end,
 	},
-
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
 	},
-
 	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
@@ -88,17 +80,15 @@ require("lazy").setup({
 			{ 'L3MON4D3/LuaSnip' },     -- Required
 		}
 	},
-
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		requires = {
+		branch = "v3.x",
+		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
+			"3rd/image.nvim",
 		}
 	},
-
 	{ "sindrets/diffview.nvim"}
-
-	})
+})
