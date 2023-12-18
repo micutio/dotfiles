@@ -48,6 +48,9 @@ require("lazy").setup({
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
 	},
+    {
+        "Hoffs/omnisharp-extended-lsp.nvim", lazy = true
+    },
 	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
