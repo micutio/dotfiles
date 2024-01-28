@@ -6,6 +6,7 @@ lsp.setup()
 lsp.ensure_installed({
     'rust_analyzer',
     'sumneko_lua',
+    'csharpier',
 })
 
 -- Fix Undefined global 'vim'
@@ -17,6 +18,22 @@ lsp.configure('lua-language-server', {
             }
         }
     }
+})
+
+lsp.configure('omnisharp', {
+    handlers = {
+        ["textDocument/definition"] = require('omnisharp_extended').handler,
+    },
+    keys = {
+        {
+            "gd",
+            require("omnisharp_extended").telescope_lsp_definitions(),
+            desc="Goto Definition"
+        },
+    },
+    enable_roslyn_analyzers = true,
+    organize_imports_on_format = true,
+    enable_import_completion = true,
 })
 
 require('lspconfig').rust_analyzer.setup {
