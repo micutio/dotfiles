@@ -19,7 +19,8 @@ for _, ls in ipairs(language_servers) do
     })
 end
 
-require("ufo").setup({
+local ufo = require("ufo")
+ufo.setup({
     keys = {
         { "zR", function() require("ufo").openAllFolds() end },
         { "zM", function() require("ufo").closeAllFolds() end },
@@ -40,3 +41,6 @@ require("ufo").setup({
         -- refer to ./doc/example.lua for detail
     end
 })
+
+-- Run 'UfoEnableFold' when entering a new buffer
+vim.api.nvim_create_autocmd('BufNew', { command = 'UfoEnableFold' })
