@@ -31,14 +31,12 @@ require("ufo").setup({
         end
         }
     },
-    close_fold_kinds = { "imports" },
-    --[[
+    close_fold_kinds = { "imports", "region" },
     provider_selector = function(bufnr, filetype, buftype)
         -- if you prefer treesitter provider rather than lsp,
         -- return ftMap[filetype] or {'treesitter', 'indent'}
         -- return ftMap[filetype]
-        return { 'lsp', 'indent' }
+        return { 'lsp' }
         -- refer to ./doc/example.lua for detail
     end
-    ]]
 })
