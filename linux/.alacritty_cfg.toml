@@ -21,7 +21,7 @@ style = "Italic"
 
 [font.normal]
 family = "Iosevka"
-style = "Normal"
+style = "Medium"
 
 [scrolling]
 history = 0
