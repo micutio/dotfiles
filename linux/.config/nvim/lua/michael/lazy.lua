@@ -74,5 +74,6 @@ require("lazy").setup({
             "3rd/image.nvim",
         }
     },
-    { "sindrets/diffview.nvim" }
+    { "sindrets/diffview.nvim" },
+    { "ionide/Ionide-vim"}
 })
