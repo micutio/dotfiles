@@ -19,7 +19,8 @@ for _, ls in ipairs(language_servers) do
     })
 end
 
-require("ufo").setup({
+local ufo = require("ufo")
+ufo.setup({
     keys = {
         { "zR", function() require("ufo").openAllFolds() end },
         { "zM", function() require("ufo").closeAllFolds() end },
@@ -31,14 +32,15 @@ require("ufo").setup({
         end
         }
     },
-    close_fold_kinds = { "imports" },
-    --[[
+    close_fold_kinds_for_ft = { "imports", "region" },
     provider_selector = function(bufnr, filetype, buftype)
         -- if you prefer treesitter provider rather than lsp,
         -- return ftMap[filetype] or {'treesitter', 'indent'}
         -- return ftMap[filetype]
-        return { 'lsp', 'indent' }
+        return { 'lsp' }
         -- refer to ./doc/example.lua for detail
     end
-    ]]
 })
+
+-- Run 'UfoEnableFold' when entering a new buffer
+vim.api.nvim_create_autocmd('BufNew', { command = 'UfoEnableFold' })
