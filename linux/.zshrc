@@ -148,7 +148,7 @@ light() {
 export PATH="$PATH:$HOME/.cargo/bin" # add cargo to PATH for all things rust
 export PATH="$PATH:$HOME/.rvm/bin" # add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.go/bin"
 
 alias config='/usr/bin/git --git-dir=/home/michael/.cfg/ --work-tree=/home/michael'
 alias clang-format-7='clang-format'
@@ -161,3 +161,9 @@ export STEAM_RUNTIME_PREFER_HOST_LIBRARIES=0
 export SDKMAN_DIR="/home/michael/.sdkman"
 [[ -s "/home/michael/.sdkman/bin/sdkman-init.sh" ]] && source "/home/michael/.sdkman/bin/sdkman-init.sh"
 
+
+# GoLang
+export GOROOT=/home/michael/.go
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=/home/michael/.go
+export PATH=$GOPATH/bin:$PATH
