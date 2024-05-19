@@ -82,7 +82,7 @@ _setup_rust() {
 
 _setup_golang() {
     # TODO: install go to be able to build this
-    curl -L https://git.io/vQhTU | bash -s -- --version 1.20
+    curl -L https://git.io/vQhTU | bash -s -- --version 1.22.3
 }
 
 _setup_alacritty() {
