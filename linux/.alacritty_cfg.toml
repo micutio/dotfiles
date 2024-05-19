@@ -8,19 +8,19 @@ shape = "Beam"
 size = 11.0
 
 [font.bold]
-family = "Iosevka"
+family = "Iosevka Term SS04"
 style = "Bold"
 
 [font.bold_italic]
-family = "Iosevka"
+family = "Iosevka Term SS04"
 style = "Bold Italic"
 
 [font.italic]
-family = "Iosevka"
+family = "Iosevka Term SS04"
 style = "Italic"
 
 [font.normal]
-family = "Iosevka"
+family = "Iosevka Term SS04"
 style = "Medium"
 
 [scrolling]
