@@ -4,9 +4,26 @@ lsp.preset('recommended')
 lsp.setup()
 
 lsp.ensure_installed({
-    'rust_analyzer',
-    'sumneko_lua',
+    -- CSharp
     'csharpier',
+    'omnisharp',
+    -- Lua
+    'lua-language-server',
+    'luacheck',
+    'luaformatter',
+    --Markdown
+    'remark',
+    -- Powershell
+    'powershell-editor-services',
+    -- Rust
+    'rust_analyzer',
+    -- Typescript
+    'typescript-language-server',
+    -- XML
+    'xmlformatter',
+    -- General
+    'typos-lsp',
+    'prettier',
 })
 
 -- Fix Undefined global 'vim'

@@ -1,6 +1,42 @@
 require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    ensure_installed = { "c", "cpp", "c_sharp", "go", "gomod", "gosum", "lua", "markdown", "markdown_inline", "rust" },
+    ensure_installed = {
+        "bash",
+        "bibtex",
+        "c",
+        "cpp",
+        "c_sharp",
+        "comment",
+        "css",
+        "git_config",
+        "gitattributes",
+        "gitcommit",
+        "gitignore",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "groovy",
+        "html",
+        "java",
+        "javascript",
+        "json",
+        "latex",
+        "lua",
+        "luadoc",
+        "markdown",
+        "markdown_inline",
+        "properties",
+        "python",
+        "pip_requirements",
+        "regex",
+        "rust",
+        "tmux",
+        "toml",
+        "typescript",
+        "xml",
+        "yaml",
+    },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -33,6 +69,6 @@ require 'nvim-treesitter.configs'.setup {
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = true,
     },
 }
