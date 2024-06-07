@@ -32,7 +32,7 @@ ufo.setup({
         end
         }
     },
-    close_fold_kinds = { "imports", "region" },
+    close_fold_kinds_for_ft = { "imports", "region" },
     provider_selector = function(bufnr, filetype, buftype)
         -- if you prefer treesitter provider rather than lsp,
         -- return ftMap[filetype] or {'treesitter', 'indent'}
