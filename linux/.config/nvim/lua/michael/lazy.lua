@@ -75,5 +75,8 @@ require("lazy").setup({
         }
     },
     { "sindrets/diffview.nvim" },
-    { "ionide/Ionide-vim"}
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "InsertEnter"
+    }
 })
