@@ -11,7 +11,7 @@ capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
-local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+local language_servers = vim.lsp.get_clients()-- or list servers manually like {'gopls', 'clangd'}
 for _, ls in ipairs(language_servers) do
     require('lspconfig')[ls].setup({
         capabilities = capabilities
@@ -32,7 +32,7 @@ ufo.setup({
         end
         }
     },
-    close_fold_kinds_for_ft = { "imports", "region" },
+    close_fold_kinds_for_ft = { default = {"imports", "region"},},
     provider_selector = function(bufnr, filetype, buftype)
         -- if you prefer treesitter provider rather than lsp,
         -- return ftMap[filetype] or {'treesitter', 'indent'}

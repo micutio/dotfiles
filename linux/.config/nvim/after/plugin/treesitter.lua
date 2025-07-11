@@ -27,7 +27,6 @@ require 'nvim-treesitter.configs'.setup {
         "markdown_inline",
         "properties",
         "python",
-        "pip_requirements",
         "regex",
         "rust",
         "tmux",
