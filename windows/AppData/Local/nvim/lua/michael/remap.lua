@@ -30,3 +30,6 @@ vim.keymap.set("n", "<leader>i", "<cmd> lua vim.diagnostic.open_float() <CR>")
 
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+vim.keymap.set({ 'n' }, '<Leader>v', function()
+    vim.lsp.buf.signature_help()
+end, { silent = true, noremap = true, desc = 'toggle signature' })

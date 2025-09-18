@@ -27,4 +27,4 @@ function ColorMyPencils(lightTheme, darkTheme)
     vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
 end
 
-ColorMyPencils("rose-pine-dawn", "rose-pine-moon")
+ColorMyPencils("rose-pine-moon", "rose-pine-moon")

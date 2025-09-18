@@ -72,11 +72,11 @@ require("lazy").setup({
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
             "3rd/image.nvim",
+            "folke/snacks.nvim"
         }
     },
     { "sindrets/diffview.nvim" },
     {
-        "ray-x/lsp_signature.nvim",
-        event = "InsertEnter"
+        "ray-x/lsp_signature.nvim"
     }
 })

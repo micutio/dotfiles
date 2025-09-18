@@ -7,6 +7,8 @@ lsp.ensure_installed({
     -- CSharp
     'csharpier',
     'omnisharp',
+    -- Go
+    
     -- Lua
     'lua-language-server',
     'luacheck',
