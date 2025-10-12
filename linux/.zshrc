@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/michael/.oh-my-zsh"
+export ZSH="/home/michael/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -149,9 +149,11 @@ export PATH="$PATH:$HOME/.cargo/bin" # add cargo to PATH for all things rust
 export PATH="$PATH:$HOME/.rvm/bin" # add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.go/bin"
+export PATH="$PATH:$HOME/.dotnet"
 
 alias config='/usr/bin/git --git-dir=/home/michael/.cfg/ --work-tree=/home/michael'
 alias clang-format-7='clang-format'
+alias dotnet='/home/michael/.dotnet/dotnet'
 
 export JAVA_HOME="/home/michael/.sdkman/candidates/java/current"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
@@ -163,7 +165,10 @@ export SDKMAN_DIR="/home/michael/.sdkman"
 
 
 # GoLang
-export GOROOT=/home/michael/.go
+export GOROOT=/home/michael/go
+export GOTOOLCHAIN=auto
 export PATH=$GOROOT/bin:$PATH
-export GOPATH=/home/michael/.go
+export GOPATH=/home/michael/go
 export PATH=$GOPATH/bin:$PATH
+export GOSUMDB=sum.golang.org
+export GOPROXY="https://proxy.golang.org,direct"
