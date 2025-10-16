@@ -55,7 +55,7 @@ lsp.configure('omnisharp', {
     enable_import_completion = true,
 })
 
-require('lspconfig').rust_analyzer.setup {
+vim.lsp.config('rust_analyzer', {
     settings = {
         ['rust-analyzer'] = {
             checkOnSave = {
@@ -67,7 +67,7 @@ require('lspconfig').rust_analyzer.setup {
             }
         }
     }
-}
+})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
