@@ -1,4 +1,4 @@
-require 'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.config'.setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = {
         "bash",
@@ -28,7 +28,6 @@ require 'nvim-treesitter.configs'.setup {
         "markdown_inline",
         "properties",
         "python",
-        "pip_requirements",
         "regex",
         "rust",
         "tmux",

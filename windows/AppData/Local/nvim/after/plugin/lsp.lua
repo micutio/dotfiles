@@ -55,8 +55,7 @@ lsp.configure('omnisharp', {
     enable_import_completion = true,
 })
 
-local nvim_lsp = require('lspconfig')
-nvim_lsp.powershell_es.setup({
+lsp.configure('powershell_es', {
     filetypes = { "ps1", "psm1", "psd1" },
     bundle_path = "~/AppData/Local/nvim-data/mason/packages/powershell-editor-services",
     settings = { powershell = { codeFormatting = { Preset = 'OTBS' } } },
