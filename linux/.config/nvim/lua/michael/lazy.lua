@@ -16,10 +16,11 @@ require("lazy").setup({
     --
     -- Color Themes
     --
-    { 'rose-pine/neovim',           name = 'rose-pine' },
-    { "savq/melange-nvim",          name = 'melange' },
-    { "markvincze/panda-vim",       name = 'panda' },
-    { "NLKNguyen/papercolor-theme", name = 'papercolor' },
+    { 'rose-pine/neovim',             name = 'rose-pine' },
+    { "savq/melange-nvim",            name = 'melange' },
+    { "markvincze/panda-vim",         name = 'panda' },
+    { "NLKNguyen/papercolor-theme",   name = 'papercolor' },
+    { "zenbones-theme/zenbones.nvim", name = 'zenbones' },
     --
     -- Plugins
     --
@@ -78,5 +79,14 @@ require("lazy").setup({
     {
         "ray-x/lsp_signature.nvim",
         event = "InsertEnter"
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
     }
 })
