@@ -7,6 +7,8 @@ lsp.ensure_installed({
     -- CSharp
     'csharpier',
     'omnisharp',
+    -- Go
+
     -- Lua
     'lua-language-server',
     'luacheck',
@@ -45,7 +47,7 @@ lsp.configure('omnisharp', {
         {
             "gd",
             require("omnisharp_extended").telescope_lsp_definitions(),
-            desc="Goto Definition"
+            desc = "Goto Definition"
         },
     },
     enable_roslyn_analyzers = true,
@@ -53,7 +55,16 @@ lsp.configure('omnisharp', {
     enable_import_completion = true,
 })
 
-require('lspconfig').rust_analyzer.setup {
+lsp.configure('powershell_es', {
+    filetypes = { "ps1", "psm1", "psd1" },
+    bundle_path = "~/AppData/Local/nvim-data/mason/packages/powershell-editor-services",
+    settings = { powershell = { codeFormatting = { Preset = 'OTBS' } } },
+    init_options = {
+        enableProfileLoading = false,
+    },
+})
+
+vim.lsp.config('rust_analyzer', {
     settings = {
         ['rust-analyzer'] = {
             checkOnSave = {
@@ -65,7 +76,7 @@ require('lspconfig').rust_analyzer.setup {
             }
         }
     }
-}
+})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
