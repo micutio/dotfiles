@@ -84,13 +84,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
--- Enable LSP servers (mason-lspconfig can also call vim.lsp.enable automatically)
-vim.lsp.enable({ 'lua_ls', 'omnisharp', 'powershell_es', 'rust_analyzer', 'tsserver' })
-
 -- Mason: install LSP servers and tools
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'omnisharp', 'powershell_es', 'rust_analyzer', 'tsserver' },
+    ensure_installed = { 'omnisharp', 'powershell_es' },
     automatic_installation = true,
 })
 
