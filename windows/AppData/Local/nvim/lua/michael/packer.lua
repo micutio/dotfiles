@@ -69,27 +69,18 @@ use {
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 }
 
+-- LSP (native vim.lsp.config / vim.lsp.enable; no lsp-zero)
+use { 'neovim/nvim-lspconfig' }
 use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
-        -- LSP Support
-        { 'neovim/nvim-lspconfig' }, -- Required
-        {
-            -- Optional
-            'williamboman/mason.nvim',
-            run = function()
-                pcall(vim.cmd, 'MasonUpdate')
-            end,
-        },
-        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-        -- Autocompletion
-        { 'hrsh7th/nvim-cmp' },     -- Required
-        { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-        { 'L3MON4D3/LuaSnip' },     -- Required
-    }
+    'williamboman/mason.nvim',
+    run = function()
+        pcall(vim.cmd, 'MasonUpdate')
+    end,
 }
+use { 'williamboman/mason-lspconfig.nvim' }
+use { 'hrsh7th/nvim-cmp' }
+use { 'hrsh7th/cmp-nvim-lsp' }
+use { 'L3MON4D3/LuaSnip' }
 
 use {
     "nvim-neo-tree/neo-tree.nvim",

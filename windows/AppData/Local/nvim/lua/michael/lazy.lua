@@ -59,26 +59,19 @@ require("lazy").setup({
     {
         "Hoffs/omnisharp-extended-lsp.nvim", lazy = true
     },
+    -- LSP (native vim.lsp.config / vim.lsp.enable; no lsp-zero)
+    { 'neovim/nvim-lspconfig' },
     {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {
-                -- Optional
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },                  -- Required
-            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
-            { 'L3MON4D3/LuaSnip' },                  -- Required
-        }
+        'williamboman/mason.nvim',
+        build = function()
+            pcall(vim.cmd, 'MasonUpdate')
+        end,
     },
+    { 'williamboman/mason-lspconfig.nvim' },
+    -- Autocompletion
+    { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'L3MON4D3/LuaSnip' },
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
