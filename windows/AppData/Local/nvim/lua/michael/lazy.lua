@@ -20,7 +20,7 @@ require("lazy").setup({
     { 'savq/melange-nvim',          name = 'melange' },
     { 'markvincze/panda-vim',       name = 'panda' },
     { 'NLKNguyen/papercolor-theme', name = 'papercolor' },
-    { 'p00f/alabaster.nvim', name = 'alabaster'},
+    { 'p00f/alabaster.nvim',        name = 'alabaster' },
     {
         "zenbones-theme/zenbones.nvim",
         -- Optionally install Lush. Allows for more configuration or extending the colorscheme
@@ -40,7 +40,7 @@ require("lazy").setup({
     --
     {
         'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
+        branch = 'master',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
