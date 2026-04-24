@@ -95,5 +95,27 @@ require("lazy").setup({
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         opts = {},
+        ft = { 'markdown', 'telekasten', 'rmd' },
+    },
+    {
+        "nvim-flutter/flutter-tools.nvim",
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "stevearc/dressing.nvim", -- Optional: for better UI prompts
+        },
+        config = function()
+            require("flutter-tools").setup({
+                lsp = {
+                    color_render = true, -- Previews colors in the editor
+                    settings = {
+                        showTodos = true,
+                        completeFunctionCalls = true,
+                    },
+                },
+                -- You can disable Flutter-specific UI if you want "Pure Dart" vibes
+                debugger = { enabled = true },
+            })
+        end,
     }
 })

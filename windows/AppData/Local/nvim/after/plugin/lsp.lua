@@ -122,5 +122,8 @@ cmp.setup({
     },
 })
 
+-- Dart project navigation
+-- vim.lsp.enable("dartls")
+
 -- LuaSnip (snippet expand for cmp)
 require('luasnip.loaders.from_vscode').lazy_load()
