@@ -20,7 +20,7 @@ require("lazy").setup({
     { 'savq/melange-nvim',          name = 'melange' },
     { 'markvincze/panda-vim',       name = 'panda' },
     { 'NLKNguyen/papercolor-theme', name = 'papercolor' },
-    { 'p00f/alabaster.nvim', name = 'alabaster'},
+    { 'p00f/alabaster.nvim',        name = 'alabaster' },
     {
         "zenbones-theme/zenbones.nvim",
         -- Optionally install Lush. Allows for more configuration or extending the colorscheme
@@ -117,5 +117,57 @@ require("lazy").setup({
                 debugger = { enabled = true },
             })
         end,
+    },
+    {
+        "sphamba/smear-cursor.nvim",
+        opts = {
+            -- Smear cursor when switching buffers or windows.
+            smear_between_buffers = true,
+
+            -- Smear cursor when moving within line or to neighbor lines.
+            -- Use `min_horizontal_distance_smear` and `min_vertical_distance_smear` for finer control
+            smear_between_neighbor_lines = true,
+
+            -- Draw the smear in buffer space instead of screen space when scrolling
+            scroll_buffer_space = true,
+
+            -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
+            -- Smears and particles will look a lot less blocky.
+            legacy_computing_symbols_support = false,
+
+            -- Smear cursor in insert mode.
+            -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
+            smear_insert_mode = true,
+            stiffness = 0.8,                      -- 0.6      [0, 1]
+            trailing_stiffness = 0.6,             -- 0.45     [0, 1]
+            stiffness_insert_mode = 0.7,          -- 0.5      [0, 1]
+            trailing_stiffness_insert_mode = 0.7, -- 0.5      [0, 1]
+            damping = 0.95,                       -- 0.85     [0, 1]
+            damping_insert_mode = 0.95,           -- 0.9      [0, 1]
+            distance_stop_animating = 0.5,        -- 0.1      > 0
+        }
+    },
+    {
+        "karb94/neoscroll.nvim",
+        opts = {
+            mappings = { -- Keys to be mapped to their corresponding default scrolling animation
+                '<C-u>', '<C-d>',
+                '<C-b>', '<C-f>',
+                '<C-y>', '<C-e>',
+                'zt', 'zz', 'zb',
+            },
+            hide_cursor = true,          -- Hide cursor while scrolling
+            stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+            respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+            cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+            duration_multiplier = 1.0,   -- Global duration multiplier
+            easing = 'sine',             -- Default easing function [linear, quadratic, cubic, quartic, quintic, circular, sine]
+            pre_hook = nil,              -- Function to run before the scrolling animation starts
+            post_hook = nil,             -- Function to run after the scrolling animation ends
+            performance_mode = false,    -- Disable "Performance Mode" on all buffers.
+            ignored_events = {           -- Events ignored while scrolling
+                'WinScrolled', 'CursorMoved'
+            },
+        },
     }
 })
