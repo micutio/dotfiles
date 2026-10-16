@@ -127,3 +127,12 @@ cmp.setup({
 
 -- LuaSnip (snippet expand for cmp)
 require('luasnip.loaders.from_vscode').lazy_load()
+
+vim.lsp.config('dartls', {
+    settings = {
+        init_options = {
+            -- Disables on-demand root scanning and enables full workspace analysis.
+            onlyAnalyzeProjectsWithOpenFiles = false,
+        },
+    },
+})
