@@ -119,6 +119,10 @@ require("lazy").setup({
         end,
     },
     {
+        'stevearc/conform.nvim',
+        opts = {},
+    },
+    {
         "sphamba/smear-cursor.nvim",
         opts = {
             -- Smear cursor when switching buffers or windows.
